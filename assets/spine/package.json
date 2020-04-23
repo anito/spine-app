@@ -1,0 +1,17 @@
+{
+    "name": "app",
+    "version": "1.0.2",
+    "dependencies": {
+        "bootstrap": "~4.3.1",
+        "jade": "~1.11.0",
+        "jquery": "^3.4.1",
+        "popper.js": "^1.16.1",
+        "spine": "~1.6.1",
+        "stylus": "^0.54.7"
+    },
+    "scripts": {
+        "hem:build": "./build.sh",
+        "hem:watch": "cd app && hem watch",
+        "hem:server": "cd app && hem server"
+    }
+}

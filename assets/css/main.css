@@ -1,0 +1,527 @@
+.spine-js-notice {
+  background-color: #fff;
+  border-left: 4px solid green;
+  padding: 1px 15px;
+}
+
+.spine-js-main {
+  flex: 1;
+  width: 80%;
+  float:left;
+}
+
+.spine-js-sidebar img {
+  max-width:100%;
+  /*height:inherit;*/
+}
+#message.updated.notice.activate-ssl {
+    padding-top: 10px;
+}
+.activate-ssl ul, .spine-js-result ul, .spine_js_bullets {
+  list-style-type: square;
+  margin-left:30px;
+}
+
+.activate-ssl .button {
+  margin-bottom:20px;
+}
+.really-simple-ssl-table td {
+  vertical-align: top;
+}
+.debug-log {
+  background-color: #fff;
+  padding:15px;
+  border:1px solid black;
+}
+
+.spine-js-icons {
+  width:15px;
+  height:15px;
+}
+
+/* spine-js-spine-js-tooltip for settings page */
+/* Base styles for the element that has a spine-js-tooltip */
+[data-spine-js-tooltip],
+.spine-js-tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Base styles for the entire tooltip */
+[data-spine-js-tooltip]:before,
+[data-spine-js-tooltip]:after,
+.spine-js-tooltip:before,
+.spine-js-tooltip:after {
+  position: absolute;
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition:
+      opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    -moz-transition:
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+    transition:
+        opacity 0.2s ease-in-out,
+        visibility 0.2s ease-in-out,
+        transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform:    translate3d(0, 0, 0);
+  transform:         translate3d(0, 0, 0);
+  pointer-events: none;
+}
+
+/* Show the entire spine-js-tooltip on hover and focus */
+[data-spine-js-tooltip]:hover:before,
+[data-spine-js-tooltip]:hover:after,
+[data-spine-js-tooltip]:focus:before,
+[data-spine-js-tooltip]:focus:after,
+.spine-js-tooltip:hover:before,
+.spine-js-tooltip:hover:after,
+.spine-js-tooltip:focus:before,
+.spine-js-tooltip:focus:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* Base styles for the spine-js-tooltip's directional arrow */
+.spine-js-tooltip:before,
+[data-spine-js-tooltip]:before {
+  z-index: 1001;
+  border: 6px solid transparent;
+  background: transparent;
+  content: "";
+}
+
+/* Base styles for the spine-js-tooltip's content area */
+.spine-js-tooltip:after,
+[data-spine-js-tooltip]:after {
+  z-index: 1000;
+  padding: 8px;
+  width: 160px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 0.9);
+  color: #fff;
+  content: attr(data-spine-js-tooltip);
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Directions */
+
+/* Top (default) */
+[data-spine-js-tooltip]:before,
+[data-spine-js-tooltip]:after,
+.spine-js-tooltip:before,
+.spine-js-tooltip:after,
+.spine-js-tooltip-top:before,
+.spine-js-tooltip-top:after {
+  bottom: 100%;
+  left: 50%;
+}
+
+[data-spine-js-tooltip]:before,
+.spine-js-tooltip:before,
+.spine-js-tooltip-top:before {
+  margin-left: -6px;
+  margin-bottom: -12px;
+  border-top-color: #000;
+  border-top-color: hsla(0, 0%, 20%, 0.9);
+}
+
+/* Horizontally align top/bottom spine-js-tooltips */
+[data-spine-js-tooltip]:after,
+.spine-js-tooltip:after,
+.spine-js-tooltip-top:after {
+  margin-left: -80px;
+}
+
+[data-spine-js-tooltip]:hover:before,
+[data-spine-js-tooltip]:hover:after,
+[data-spine-js-tooltip]:focus:before,
+[data-spine-js-tooltip]:focus:after,
+.spine-js-tooltip:hover:before,
+.spine-js-tooltip:hover:after,
+.spine-js-tooltip:focus:before,
+.spine-js-tooltip:focus:after,
+.spine-js-tooltip-top:hover:before,
+.spine-js-tooltip-top:hover:after,
+.spine-js-tooltip-top:focus:before,
+.spine-js-tooltip-top:focus:after {
+  -webkit-transform: translateY(-12px);
+  -moz-transform:    translateY(-12px);
+  transform:         translateY(-12px);
+}
+
+/* Left */
+.spine-js-tooltip-left:before,
+.spine-js-tooltip-left:after {
+  right: 100%;
+  bottom: 50%;
+  left: auto;
+}
+
+.spine-js-tooltip-left:before {
+  margin-left: 0;
+  margin-right: -12px;
+  margin-bottom: 0;
+  border-top-color: transparent;
+  border-left-color: #000;
+  border-left-color: hsla(0, 0%, 20%, 0.9);
+}
+
+.spine-js-tooltip-left:hover:before,
+.spine-js-tooltip-left:hover:after,
+.spine-js-tooltip-left:focus:before,
+.spine-js-tooltip-left:focus:after {
+  -webkit-transform: translateX(-12px);
+  -moz-transform:    translateX(-12px);
+  transform:         translateX(-12px);
+}
+
+/* Bottom */
+.spine-js-tooltip-bottom:before,
+.spine-js-tooltip-bottom:after {
+  top: 100%;
+  bottom: auto;
+  left: 50%;
+}
+
+.spine-js-tooltip-bottom:before {
+  margin-top: -12px;
+  margin-bottom: 0;
+  border-top-color: transparent;
+  border-bottom-color: #000;
+  border-bottom-color: hsla(0, 0%, 20%, 0.9);
+}
+
+.spine-js-tooltip-bottom:hover:before,
+.spine-js-tooltip-bottom:hover:after,
+.spine-js-tooltip-bottom:focus:before,
+.spine-js-tooltip-bottom:focus:after {
+  -webkit-transform: translateY(12px);
+  -moz-transform:    translateY(12px);
+  transform:         translateY(12px);
+}
+
+/* Right */
+.spine-js-tooltip-right:before,
+.spine-js-tooltip-right:after {
+  bottom: 50%;
+  left: 100%;
+}
+
+.spine-js-tooltip-right:before {
+  margin-bottom: 0;
+  margin-left: -12px;
+  border-top-color: transparent;
+  border-right-color: #000;
+  border-right-color: hsla(0, 0%, 20%, 0.9);
+}
+
+.spine-js-tooltip-right:hover:before,
+.spine-js-tooltip-right:hover:after,
+.spine-js-tooltip-right:focus:before,
+.spine-js-tooltip-right:focus:after {
+  -webkit-transform: translateX(12px);
+  -moz-transform:    translateX(12px);
+  transform:         translateX(12px);
+}
+
+/* Move directional arrows down a bit for left/right spine-js-tooltips */
+.spine-js-tooltip-left:before,
+.spine-js-tooltip-right:before {
+  top: 3px;
+}
+
+/* Vertically center spine-js-tooltip content for left/right spine-js-tooltips */
+.spine-js-tooltip-left:after,
+.spine-js-tooltip-right:after {
+  margin-left: 0;
+  margin-bottom: -16px;
+}
+
+/* Styling for the sidebar in the admin tab of the free plugin */
+
+.spine-js-really-simple-plugins-logo {
+  background-color: #DCDCDC;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.spine-js-sidebar {
+  width: 240px;
+  margin-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: 15px;
+  padding-bottom: 15px;
+  background-color: #ECECEC;
+}
+
+.spine-js-sidebar-single-content-container {
+  min-height: 125px;
+  padding-bottom: 35px;
+  margin-bottom: 10px;
+  background-color: #DCDCDC;
+  width: 100%;
+  border-radius: 3%;
+}
+
+.spine-js-sidebar-single-content-container-pro {
+  min-height: 125px;
+  padding-bottom: 35px;
+  margin-bottom: 10px;
+  background-color: #DCDCDC;
+  width: 100%;
+  border-radius: 3%;
+}
+
+.spine-js-sidebar-title h3 {
+  font-size: 0.9em;
+}
+
+.spine-js-sidebar-text-content-pro {
+  font-weight: 700;
+  font-size: 0.8em;
+  width: 90%;
+  /*min-height: 100px;*/
+  margin: auto;
+}
+
+.spine-js-sidebar-text-content {
+  width: 45%;
+  padding-top: 5px;
+  padding-right: 7px;
+  font-weight: 700;
+  font-size: 0.8em;
+  float: right;
+  margin: 10px auto;
+}
+
+.spine-js-pro-image {
+  height: 30px;
+  margin-top: 6px;
+}
+
+.spine-js-sidebar-image-pro {
+  width: 90%;
+  margin: 10px;
+}
+
+.spine-js-sidebar-image {
+  width: 100px;
+  float: left;
+  padding: 10px;
+  height: 100px;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 541px) {
+  /* Let the main container be 100% width again */
+  .spine-js-main {
+    width: 100%;
+  }
+
+  .spine-js-sidebar-title {
+    /*margin: auto;*/
+    text-align: center;
+  }
+
+  .spine-js-container {
+    flex-direction: column;
+  }
+  .spine-js-sidebar {
+    width: 100%;
+    /*padding-left: 10%;*/
+  }
+  .spine-js-really-simple-plugins-logo {
+   width: 40%;
+ }
+  .spine-js-sidebar-single-content-container {
+    width: 40%;
+    padding-left: 25px;
+    float: left;
+    margin-right: 25px;
+  }
+
+  .spine-js-sidebar-single-content-container-pro {
+    width: 40%;
+    padding-left: 25px;
+    margin: auto auto 25px;
+  }
+
+  .spine-js-sidebar-um-text-content {
+    width: 40%;
+  }
+  .spine-js-pro-image {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .spine-js-main {
+    width: 100%;
+  }
+  .spine-js-container {
+    flex-direction: column;
+  }
+  .spine-js-sidebar {
+  display: grid;
+  text-align: -webkit-center;
+  width: 70%;
+  }
+  .spine-js-sidebar-um-text-content {
+    width: 45%;
+  }
+.spine-js-sidebar-single-content-container-pro {
+  padding-bottom: 10px;
+}
+  .spine-js-sidebar-single-content-container {
+    padding-bottom: 10px;
+  }
+}
+
+.spine-js-sidebar h4 {
+  font-size:14px;
+  font-style:italic;
+}
+
+.spine-js-wrapper {
+  padding: 30px;
+}
+
+.spine-js-sidebar-list {
+  font-size: 0.9em;
+}
+
+#spine-js-premium-button-pro {
+  display: inline-table;
+  width: 40%;
+  text-align: center;
+  float: right;
+  font-size: inherit;
+  height: 25px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  background-color: #7BD561;
+  color: white;
+  margin-right: 5px;
+}
+
+.spine-js-sidebar-content {
+  float: left;
+  padding-bottom: 10px;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.spine-js-container {
+  display: flex;
+}
+
+#spine-js-premium-button {
+  display: inline-table;
+  width: 40%;
+  text-align: center;
+  float: right;
+  font-size: inherit;
+  height: 25px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  background-color: #017FAF;
+  color: white;
+  margin-right: 5px;
+}
+
+.spine-js-more-info-button {
+  clear: both;
+}
+
+#TB_ajaxContent {
+  text-align: center !important;
+}
+
+#TB_window {
+  height: 370px !important;
+}
+
+.spine-js-button-deactivate-keep-ssl {
+  margin-right: 15px;
+}
+
+.spine-js-scan-button{
+    float: left;
+    margin-top: 17px;
+    margin-right: 5px;
+}
+
+/*
+    cool checkbox sliders
+*/
+.spine-js-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 21px;
+}
+.spine-js-switch input[type=checkbox],
+.spine-js-switch input[type=radio] {
+  display: none;
+}
+.spine-js-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.spine-js-slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.spine-js-slider.spine-js-round {
+  border-radius: 20px;
+}
+.spine-js-slider.spine-js-round:before {
+  border-radius: 50%;
+}
+input:checked + .spine-js-slider {
+  background-color: #2DAAE1;
+}
+input:checked + .spine-js-slider:before {
+  -webkit-transform: translateX(17px);
+  -ms-transform: translateX(17px);
+  transform: translateX(17px);
+}
+input:disabled + .spine-js-slider {
+  background-color: #b3e0f4;
+}
+input:focus + .spine-js-slider {
+  box-shadow: 0 0 1px #2DAAE1;
+}

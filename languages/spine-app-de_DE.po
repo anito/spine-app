@@ -1,0 +1,153 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Spine App\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-27 16:47+0000\n"
+"PO-Revision-Date: 2020-01-27 16:47+0000\n"
+"Last-Translator: Axel <axel@webpremiere.dev>\n"
+"Language-Team: Deutsch\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.1; wp-5.3.2"
+
+#: class-admin.php:117
+msgid "Lehmann Settings"
+msgstr "Lehmann Einstellungen"
+
+#. link title
+#: class-admin.php:118
+msgid "Lehmann GmbH"
+msgstr "Lehmann GmbH"
+
+#: class-admin.php:212
+msgid "Setup"
+msgstr "Einstellungen"
+
+#: class-admin.php:221
+msgid "Save"
+msgstr "Speichern"
+
+#: class-admin.php:239
+msgid "DB Backup Tool"
+msgstr "DB Backup Tool"
+
+#: class-admin.php:240
+msgid "WP Touch"
+msgstr "WP Touch"
+
+#: class-admin.php:241
+msgid "Action Products"
+msgstr "\"Action\" Produkte"
+
+#: class-admin.php:269
+msgid "Please authorize in DB Backup Tool"
+msgstr "Autorisiere dich im DB Back Tool"
+
+#: class-admin.php:272
+msgid "Replace default Pages Menu in WP Touch"
+msgstr ""
+"Ermöglicht das Überschreiben des Seitenmenüs (links) mit einem "
+"benutzerdefinierten Menü"
+
+#: class-admin.php:275
+msgid "Use Action Products"
+msgstr "\"Action\" Produkt aktivieren"
+
+#: class-admin.php:278
+msgid "Short description here"
+msgstr "Kurze Beschreibung hier"
+
+#: class-help.php:9 classes/class-db.php:18 classes/class-wptouch-helper.php:12
+#: classes/class-wpt.php:16
+#, php-format
+msgid "%s is a singleton class and you cannot create a second instance."
+msgstr ""
+
+#: classes/class-db.php:55
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: classes/class-db.php:57
+msgid "Backup Domain"
+msgstr "Domain"
+
+#: classes/class-db.php:58 classes/class-db.php:216
+msgid "Username"
+msgstr "Benutzername"
+
+#: classes/class-db.php:59 classes/class-db.php:228
+msgid "Password"
+msgstr "Passwort"
+
+#: classes/class-db.php:60
+msgid "Show DB Notice"
+msgstr "Zeige Info"
+
+#: classes/class-db.php:204
+msgid "Domain for Backup"
+msgstr "Domain für Datenbank-Sicherung"
+
+#: classes/class-db.php:208
+msgid "Domain where DB Backup Tool is located"
+msgstr "IP oder Domain des DB Backup Tools"
+
+#: classes/class-db.php:220
+msgid "Your DB Backup Tool Username"
+msgstr "Dein DB Backup Tool Benutzername"
+
+#: classes/class-db.php:232
+msgid "Your DB Backup Tool Password"
+msgstr "Dein DB Backup Tool Passwort"
+
+#: classes/class-db.php:235 classes/class-db.php:237
+msgid "Register new user"
+msgstr "Registriere dich"
+
+#: classes/class-db.php:253
+msgid "Enable this option to show DB Tool notice"
+msgstr "Aktiviere diese Option um die Notiz anzuzeigen "
+
+#: classes/class-wpt.php:50
+msgid "Overwrite Pages Menü"
+msgstr "Seitenmenü überschreiben"
+
+#: classes/class-wpt.php:52
+msgid "Active"
+msgstr "Aktiv"
+
+#: classes/class-wpt.php:53
+msgid "Title"
+msgstr "Titel"
+
+#: classes/class-wpt.php:102
+msgid "Activate the alternate pages menu"
+msgstr "Aktiviere ein alternatives Menü anstelle des normalen Seiten Menüs"
+
+#: classes/class-wpt.php:109
+msgid "WP Touch Menu Tile"
+msgstr "WP Touch Menü-Titel"
+
+#: classes/class-wpt.php:113
+msgid "Title of alternate pages menu"
+msgstr "Titel des benutzerdefinierten Menüs"
+
+#. Name of the plugin
+msgid "Spine App"
+msgstr "Spine App"
+
+#. Description of the plugin
+msgid "Extend Wordpress by SpineJS"
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://webpremiere.de"
+msgstr ""
+
+#. Author of the plugin
+msgid "Webpremiere"
+msgstr ""

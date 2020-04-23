@@ -1,0 +1,75 @@
+@import './mixin'
+
+/**
+* Animations
+*/
+@keyframes loading-fade-animation {
+  0% {
+    opacity: 0.5; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0.5; } }
+
+@keyframes fade-in-animation {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+.hide
+	visibility: hidden
+.is-saving
+    animation: loading-fade-animation 0.5s infinite;
+.backup-info 
+    line-height: 2em
+.backup-info .timespan
+    font-weight: 400
+    padding: .3em .5em
+    font-style: normal
+    background: #e2e1e1
+    border-radius: 3px
+.backup-info .button-primary.alert
+    animation: loading-fade-animation 1s infinite;
+.backup-info .timespan.info-alert
+    background-color: #dc3232;
+    color: #fff;
+.backup-info .timespan.info-alert::before
+    background-color: #dc3232;
+    color: #fff;
+.backup-info .timespan.info-warning
+    background-color: #ffb900;
+    color: #fff;
+.backup-info .timespan.info-warning::before
+    background-color: #ffb900;
+    color: #fff;
+.backup-info .timespan[class*="info-"]::before
+    content: '\e016';
+    display: initial 
+.backup-info .timespan::before
+    font-family: WooCommerce;
+    display: none;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    margin: 0;
+    text-indent: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    content: "";
+    font-size: 1em;
+    position: relative;
+    width: auto;
+    line-height: 1.2em;
+    color: #464646;
+    margin-right: 12px;
+    margin-bottom: 12px;
+.backup-info .button-primary
+  text-transform: uppercase
+  font-weight: bold
+
+    
