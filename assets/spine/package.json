@@ -10,8 +10,8 @@
         "stylus": "^0.54.7"
     },
     "scripts": {
-        "hem:build": "./build.sh",
-        "hem:watch": "cd app && hem watch",
-        "hem:server": "cd app && hem server"
+        "hem:build": "bash ./build.sh -- build",
+        "hem:watch": "bash ./build.sh -- watch",
+        "hem:server": "bash ./build.sh -- server"
     }
 }
