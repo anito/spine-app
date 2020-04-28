@@ -68,7 +68,7 @@ class Spine_js_admin {
 
             case 'wpt_custom_menu':
 
-                if( ! isset ( $this->$wpt ) ) $this->wpt = new Wpt_spine_js();
+                if( ! isset ( $this->wpt ) ) $this->wpt = new Wpt_spine_js();
                 add_action( 'admin_init', array($this->wpt, 'register_setting'), 10 );
                 add_action( 'admin_init', array($this->wpt, 'create_form'), 20 );
             break;
