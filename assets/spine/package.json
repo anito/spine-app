@@ -10,8 +10,8 @@
         "stylus": "^0.54.7"
     },
     "scripts": {
-        "hem:build": "bash ./build.sh -- build",
-        "hem:watch": "bash ./build.sh -- watch",
-        "hem:server": "bash ./build.sh -- server"
+        "hem:build": "sh ./build.sh -- build",
+        "hem:watch": "sh ./build.sh -- watch",
+        "hem:server": "sh ./build.sh -- server"
     }
 }

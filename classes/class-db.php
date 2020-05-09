@@ -56,7 +56,6 @@ if ( ! class_exists( 'db_spine_js' ) ) {
             add_settings_field('id_show_db_notice', __("Show DB Notice", "spine-app"), array($this, 'get_option_show_db_notice'), $this->plugin_slug, 'spine_js_settings_sections_db');
             add_settings_field('id_option_group', "", array($this, 'get_hidden_input'), $this->plugin_slug, 'spine_js_settings_sections_db');
 
-            // register_setting('spine_js_settings_db', 'spine_js_settings_db', array($this, 'options_validate'));
         }
 
         /**

@@ -4,9 +4,9 @@ defined('ABSPATH') or die("you do not have access to this page!");
 if ( ! class_exists( 'woo_spine_js' ) ) {
 
     class Woo_spine_js extends Spine_js_admin {
-        
+
         private static $_this;
-        
+
         public $active = true;
         public $option_group = 'woo_action_taxonomy';
         public $custom_meta_fields = array();
@@ -32,7 +32,7 @@ if ( ! class_exists( 'woo_spine_js' ) ) {
         public function get_admin_options() {
 
             $this->admin_options = get_option('spine_js_settings_woo');
-            
+
             if (isset($this->admin_options)) {
                 $this->active = isset($this->admin_options['active']) ? $this->admin_options['active'] : $this->active;
                 // RESET ALL FIELDS
@@ -50,13 +50,13 @@ if ( ! class_exists( 'woo_spine_js' ) ) {
          */
         public function create_form() {
             add_settings_section('spine_js_settings_sections_woo', __('"Action Produkt" & "Produkt Angebot der Woche" aktivieren', "spine-app"), array($this, 'section_text'), $this->plugin_slug);
-            
+
             add_settings_field('active', __("Active", "spine-app"), array($this, 'get_woo_active'), $this->plugin_slug, 'spine_js_settings_sections_woo');
             $this->add_settings_fields();
             add_settings_field('id_option_group', "", array($this, 'get_hidden_input'), $this->plugin_slug, 'spine_js_settings_sections_woo');
 
         }
-        
+
         /**
          * Register settings
          */
@@ -74,31 +74,38 @@ if ( ! class_exists( 'woo_spine_js' ) ) {
          *
          */
         public function options_validate( $new_settings ) {
-            
+
             //fill array with current values, so we don't lose any
-            if(array_key_exists('name', $new_settings['add_new']['new']) && ! empty ($new_settings['add_new']['new']['name'])) {
+            if( isset( $new_settings['add_new'] ) && array_key_exists('name', $new_settings['add_new']['new']) && ! empty ( $new_settings['add_new']['new']['name'] ) ) {
                 $new_settings['custom_meta_fields'][] = $new_settings['add_new']['new'];
             }
-            
+
             if( ! empty ($new_settings['custom_meta_fields'] ) ) {
 
                 $settings = array(
                     'custom_meta_fields' => $new_settings['custom_meta_fields']
                 );
-            }
-            $settings['custom_meta_fields'] = array_map( function( $item ) {
-                if( ! empty ( $item['name'] ))
-                    return array( 'name' => $item['name'], 'slug' => sanitize_title($item['name']) );
-            }, $settings['custom_meta_fields']);
 
-            if (!empty($new_settings['active']) && $new_settings['active'] == '1') {
+                // Remove duplicates
+                $custom_meta_fields = array_unique( $settings['custom_meta_fields'], SORT_REGULAR );
+
+                $settings['custom_meta_fields'] = array_filter( array_map( function( $item ) {
+                    if( ! empty ( $item['name'] ) ) {
+                        return array( 'name' => $item['name'], 'slug' => sanitize_title($item['name']) );
+                    }
+                }, $custom_meta_fields ), function( $item ) {
+                    return ! empty( $item );
+                } );
+
+                write_log( $settings['custom_meta_fields'] );
+            }
+
+            if ( ! empty( $new_settings['active'] ) && $new_settings['active'] == '1' ) {
                 $settings['active'] = TRUE;
             } else {
                 $settings['active'] = FALSE;
             }
 
-            write_log('Validating Options::afterValidating');
-            write_log($settings);
             return $settings;
         }
 

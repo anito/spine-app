@@ -12,7 +12,6 @@ class Spine_js_front {
 
         if (isset(self::$_this))
             return self::$_this;
-            // wp_die(sprintf(__('%s is a singleton class and you cannot create a second instance.', 'spine-js'), get_class($this)));
 
         $this->hooks();
         self::$_this = $this;
@@ -42,7 +41,7 @@ class Spine_js_front {
         }
     }
     public function add_woo_support() {
-        // Product Custom Meta Fields 
+        // Product Custom Meta Fields
         $woo_opt = get_option('spine_js_settings_woo');
         if( ! empty( $woo_opt ) && true == $woo_opt['active'] ) {
             $this->woo_active = true;

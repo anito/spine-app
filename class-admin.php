@@ -5,22 +5,28 @@ class Spine_js_admin {
 
     private static $_this;
 
-    public $default_tab = 'db_backup';
     public $capability = 'activate_plugins';
     public $plugin_filename = "spine-app.php";
     public $plugin_slug = "spine_js";
+    public $missing_plugins = [];
+    public $default_tab = 'db_backup';
 
     function __construct() {
 
         if (isset(self::$_this))
             return self::$_this;
-            // wp_die(sprintf(__('%s is a singleton class and you cannot create a second instance.', 'spine-js'), get_class($this)));
 
         self::$_this = $this;
 
         register_deactivation_hook(dirname(__FILE__) . "/" . $this->plugin_filename, array($this, 'deactivate'));
 
         add_action('admin_init', array($this, 'add_privacy_info'));
+
+        $this->tabs = array(
+            'db_backup'           => array( 'title' => __("DB Backup Tool", "spine-app"), 'description' => 'Backup your Database' ),
+            'wpt_custom_menu'     => array( 'title' => __("WP Touch", "spine-app"), 'description' => 'Customize WP Touch Menu Name' ),
+            'woo_action_taxonomy' => array( 'title' => __("Action Products", "spine-app"), 'description' => 'Create custom Meta Data for WooCommerce Gutenberg Product Blocks' ),
+        );
 
     }
 
@@ -41,7 +47,6 @@ class Spine_js_admin {
     }
 
     public function init() {
-        write_log( 'admin init' );
         $opts = get_option('spine_js_settings_db');
 
         $this->db = new Db_spine_js();
@@ -56,7 +61,6 @@ class Spine_js_admin {
     }
 
     public function edit() {
-
         $tab =  $this->get_tab();
         switch($tab) {
             case 'db_backup':
@@ -68,9 +72,9 @@ class Spine_js_admin {
 
             case 'wpt_custom_menu':
 
-                if( ! isset ( $this->wpt ) ) $this->wpt = new Wpt_spine_js();
-                add_action( 'admin_init', array($this->wpt, 'register_setting'), 10 );
-                add_action( 'admin_init', array($this->wpt, 'create_form'), 20 );
+                    if( ! isset ( $this->wpt ) ) $this->wpt = new Wpt_spine_js();
+                    add_action( 'admin_init', array($this->wpt, 'register_setting'), 10 );
+                    add_action( 'admin_init', array($this->wpt, 'create_form'), 20 );
             break;
 
             case 'woo_action_taxonomy':
@@ -83,7 +87,7 @@ class Spine_js_admin {
     }
 
     public function hooks() {
-        write_log( 'admin hooks' );
+        add_action( 'admin_init', array($this, 'handle_plugin_dependencies'), 0 );
         add_action( 'admin_menu', array($this, 'add_settings_page'), 0 );
         add_action( 'admin_init', array($this, 'load_translation'), 20 );
         add_filter( 'body_class', array ( $this, 'body_class' ) );
@@ -95,6 +99,40 @@ class Spine_js_admin {
     }
     public function get_admin_options() {
         //
+    }
+
+    public function handle_plugin_dependencies() {
+        global $pagenow;
+
+        if( ! function_exists( 'wptouch_register_theme_menu' ) ) {
+            $this->missing_plugins[] = array( 'plugin_name' => 'WP Touch', 'tab' => $this->tabs['wpt_custom_menu'] );
+            add_filter( 'spine_js_tabs', array( $this, 'no_wp_touch' ) );
+        }
+        if( ! function_exists( 'woocommerce_get_page_id' ) ) {
+            $this->missing_plugins[] = array( 'plugin_name' => 'Woocommerce', 'tab' => $this->tabs['woo_action_taxonomy'] ) ;
+            add_filter( 'spine_js_tabs', array( $this, 'no_woocommerce' ) );
+        }
+        if( ! empty( $this->missing_plugins ) )
+            $screen = $pagenow;
+            if( $screen === 'options-general.php' && ! empty ( $_GET['page'] ) && $_GET['page'] === $this->plugin_slug )
+                add_action( "admin_notices", array($this, 'show_notices'), 10 );
+    }
+
+    public function no_wp_touch( $tabs ) {
+        unset( $tabs['wpt_custom_menu'] );
+        return $tabs;
+    }
+    public function no_woocommerce( $tabs ) {
+        unset( $tabs['woo_action_taxonomy'] );
+        return $tabs;
+    }
+    public function show_notices() {
+        $this->notes['missing-plugins'] = array(
+            'class' => 'notice notice-warning',
+            'errors' => $this->missing_plugins
+        );
+        $notices = $this->notes;
+        require_once(SPINEAPP_PLUGIN_DIR . 'templates/missing_plugins_notice.php');
     }
 
     /**
@@ -184,29 +222,45 @@ class Spine_js_admin {
 
                     case 'db_backup' :
                         settings_fields('spine_js_settings_db'); // matches option group
-                        do_settings_sections('spine_js'); // prints form fields
+                        do_settings_sections( $this->plugin_slug ); // prints form fields
+                        $this->print_submit_button(); // print submit buttton
                     break;
 
                     case 'wpt_custom_menu' :
                         settings_fields('spine_js_settings_wpt'); // matches option group
-                        do_settings_sections('spine_js'); // prints form fields
+                        do_settings_sections( $this->plugin_slug ); // prints form fields
+                        $this->print_submit_button(); // print submit buttton
                     break;
 
                     case 'woo_action_taxonomy' :
                         settings_fields('spine_js_settings_woo'); // matches option group
-                        do_settings_sections('spine_js'); // prints form fields
+                        do_settings_sections( $this->plugin_slug ); // prints form fields
+                        $this->print_submit_button(); // print submit buttton
                     break;
 
                 }
                 //possibility to hook into the tabs.
                 do_action("show_tab_{$tab}");
                 ?>
-                    <input class="button button-primary" name="Submit" type="submit" value="<?php echo __("Save", "spine-app"); ?>"/>
                 </form>
             </div><!-- end spine-js-main-->
         </div><!-- end spine-js-main-->
         <?php
 
+    }
+
+    /**
+     * Print Submit Button on the settings page
+     *
+     * @since  2.1
+     *
+     * @access public
+     *
+     */
+    public function print_submit_button() {
+        ?>
+        <input class="button button-primary" name="Submit" type="submit" value="<?php echo __("Save", "spine-app"); ?>"/>
+        <?php
     }
 
     /**
@@ -217,21 +271,17 @@ class Spine_js_admin {
      * @access public
      *
      */
-    public function admin_tabs($current) {
-        $tabs = array(
-            'db_backup'           => __("DB Backup Tool", "spine-app"),
-            'wpt_custom_menu'     => __("WP Touch", "spine-app"),
-            'woo_action_taxonomy' => __("Action Products", "spine-app")
-        );
+    public function admin_tabs( $current ) {
 
-        $tabs = apply_filters("spine_js_tabs", $tabs);
+        $tabs = apply_filters("spine_js_tabs", $this->tabs);
 
         echo '<h2 class="nav-tab-wrapper">';
 
         $page = $this->plugin_slug;
-        foreach ($tabs as $tab => $name) {
+        foreach ($tabs as $tab => $arr) {
             $class = ($tab == $current) ? ' nav-tab-active' : '';
-            echo "<a class='nav-tab$class' href='?page=$page&tab=$tab'>$name</a>";
+            $title = $arr['title'];
+            echo "<a class='nav-tab$class' href='?page=$page&tab=$tab'>$title</a>";
         }
         echo '</h2>';
     }

@@ -4,13 +4,12 @@ defined('ABSPATH') or die("you do not have access to this page!");
 if ( ! class_exists( 'spine_js_wpt' ) ) {
 
     class Spine_js_wpt {
-        
+
         private static $_this;
 
         function __construct() {
             if ( isset( self::$_this ) )
                 return self::$_this;
-                // wp_die( sprintf( __( '%s is a singleton class and you cannot create a second instance.','spine-app' ), get_class( $this ) ) );
 
             $this->hook();
             self::$_this = $this;
@@ -41,8 +40,6 @@ if ( ! class_exists( 'spine_js_wpt' ) ) {
                 );
 
             }
-		
         }
-      
     }//class closure
 } //if class exists closure
