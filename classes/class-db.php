@@ -94,6 +94,7 @@ if ( ! class_exists( 'db_spine_js' ) ) {
         public function enqueue_assets() {
 
             wp_deregister_script('jquery');
+            wp_enqueue_script ( 'jquery-ui-sortable' ); // support for social-pug plugin
             wp_enqueue_script ( 'jquery', SPINEAPP_PLUGIN_URL . 'assets/spine/public/application.js', false, SPINEAPP_VERSION, true );
             wp_enqueue_style('spine-app-styles', SPINEAPP_PLUGIN_URL . 'assets/spine/public/application.css', false, SPINEAPP_VERSION);
 
