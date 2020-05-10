@@ -10,9 +10,9 @@
         "stylus": "^0.54.7"
     },
     "scripts": {
-        "hem:build": "sh ./build.sh -- build",
-        "hem:build-compressed": "sh ./build.sh -- build -c",
-        "hem:watch": "sh ./build.sh -- watch",
-        "hem:server": "sh ./build.sh -- server"
+        "hem:build": "sh ./hem.sh build",
+        "hem:build-c": "sh ./hem.sh build -c",
+        "hem:watch": "sh ./hem.sh watch",
+        "hem:server": "sh ./hem.sh server"
     }
 }
