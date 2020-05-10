@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Spine App\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-10 12:38+0000\n"
-"PO-Revision-Date: 2020-05-10 12:41+0000\n"
+"POT-Creation-Date: 2020-05-10 13:00+0000\n"
+"PO-Revision-Date: 2020-05-10 13:00+0000\n"
 "Last-Translator: Axel\n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -23,8 +23,8 @@ msgid "WP Touch"
 msgstr "WP Touch"
 
 #: class-admin.php:28
-msgid "Action Products"
-msgstr "\"Action\" Produkte"
+msgid "Special Products"
+msgstr "Spezial Produkte"
 
 #: class-admin.php:152
 msgid "Lehmann Settings"

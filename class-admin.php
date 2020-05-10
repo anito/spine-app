@@ -25,7 +25,7 @@ class Spine_js_admin {
         $this->tabs = array(
             'db_backup'           => array( 'title' => __("DB Backup Tool", "spine-app"), 'description' => 'Backup your Database' ),
             'wpt_custom_menu'     => array( 'title' => __("WP Touch", "spine-app"), 'description' => 'Customize WP Touch Menu Name' ),
-            'woo_action_taxonomy' => array( 'title' => __("Action Products", "spine-app"), 'description' => 'Create custom Meta Data for WooCommerce Gutenberg Product Blocks' ),
+            'woo_action_taxonomy' => array( 'title' => __("Special Products", "spine-app"), 'description' => 'Create custom Meta Data for WooCommerce Gutenberg Product Blocks' ),
         );
 
     }
