@@ -23,8 +23,8 @@ class Spine_js_front {
     }
 
     public function hooks() {
-        add_action( 'init', array( $this, 'add_wpt_support' ));
-        add_action( 'init', array( $this, 'add_woo_support' ));
+        add_action( 'init', array( $this, 'add_wpt_support' ), 0 );
+        add_action( 'init', array( $this, 'add_woo_support' ), 0);
     }
     public function add_wpt_support() {
 
@@ -36,8 +36,10 @@ class Spine_js_front {
         if( ! empty( $wpt_opt ) && true == $wpt_opt['active'] ) {
             $this->wpt_active = true;
 
-            require_once dirname( __FILE__ ) . '/classes/class-wptouch-helper.php';
-            $spine_wptouch_helper = new Spine_js_wpt();
+            require_once dirname( __FILE__ ) . '/classes/class-wptouch-alternate-menu.php';
+            $spine_wptouch_helper = new Spine_js_wpt_alternate_menu();
+
+            do_action( 'webpremiere_register_custom_menu' );
         }
     }
     public function add_woo_support() {

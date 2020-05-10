@@ -49,7 +49,7 @@ if ( ! class_exists( 'woo_spine_js' ) ) {
          *
          */
         public function create_form() {
-            add_settings_section('spine_js_settings_sections_woo', __('"Action Produkt" & "Produkt Angebot der Woche" aktivieren', "spine-app"), array($this, 'section_text'), $this->plugin_slug);
+            add_settings_section('spine_js_settings_sections_woo', __('Activate WooCommerce Gutenberg Product Block: Special Products', "spine-app"), array($this, 'section_text'), $this->plugin_slug);
 
             add_settings_field('active', __("Active", "spine-app"), array($this, 'get_woo_active'), $this->plugin_slug, 'spine_js_settings_sections_woo');
             $this->add_settings_fields();

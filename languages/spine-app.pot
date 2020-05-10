@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Spine App\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-27 16:47+0000\n"
+"POT-Creation-Date: 2020-05-10 12:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,123 +15,138 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.3.0; wp-5.2.2"
 
-#: class-admin.php:117
+#: class-admin.php:26
+msgid "DB Backup Tool"
+msgstr ""
+
+#: class-admin.php:27
+msgid "WP Touch"
+msgstr ""
+
+#: class-admin.php:28
+msgid "Action Products"
+msgstr ""
+
+#: class-admin.php:152
 msgid "Lehmann Settings"
 msgstr ""
 
 #. link title
-#: class-admin.php:118
+#: class-admin.php:153
 msgid "Lehmann GmbH"
 msgstr ""
 
-#: class-admin.php:212
-msgid "Setup"
-msgstr ""
-
-#: class-admin.php:221
+#: class-admin.php:263
 msgid "Save"
 msgstr ""
 
-#: class-admin.php:239
-msgid "DB Backup Tool"
-msgstr ""
-
-#: class-admin.php:240
-msgid "WP Touch"
-msgstr ""
-
-#: class-admin.php:241
-msgid "Action Products"
-msgstr ""
-
-#: class-admin.php:269
+#: class-admin.php:303
 msgid "Please authorize in DB Backup Tool"
 msgstr ""
 
-#: class-admin.php:272
+#: class-admin.php:306
 msgid "Replace default Pages Menu in WP Touch"
 msgstr ""
 
-#: class-admin.php:275
-msgid "Use Action Products"
+#: class-admin.php:309
+msgid "Activate additional Product Features."
 msgstr ""
 
-#: class-admin.php:278
+#: class-admin.php:312
 msgid "Short description here"
 msgstr ""
 
-#: class-help.php:9 classes/class-db.php:18 classes/class-wptouch-helper.php:12
-#: classes/class-wpt.php:16
+#: class-help.php:9
 #, php-format
 msgid "%s is a singleton class and you cannot create a second instance."
 msgstr ""
 
-#: classes/class-db.php:55
+#: classes/class-woo.php:52
+msgid "Activate WooCommerce Gutenberg Product Block: Special Products"
+msgstr ""
+
+#: classes/class-woo.php:54 classes/class-wpt.php:52
+msgid "Active"
+msgstr ""
+
+#: classes/class-woo.php:121 classes/class-wpt.php:98
+msgid "Activate the alternate pages menu"
+msgstr ""
+
+#: classes/class-woo.php:130
+msgid "Meta Field"
+msgstr ""
+
+#: classes/class-woo.php:135
+msgid "Add Meta Field"
+msgstr ""
+
+#: classes/class-db.php:51
 msgid "Settings"
 msgstr ""
 
-#: classes/class-db.php:57
-msgid "Backup Domain"
+#: classes/class-db.php:53 classes/class-db.php:195
+msgid "DB Backup Tool Domain"
 msgstr ""
 
-#: classes/class-db.php:58 classes/class-db.php:216
+#: classes/class-db.php:54 classes/class-db.php:207
 msgid "Username"
 msgstr ""
 
-#: classes/class-db.php:59 classes/class-db.php:228
+#: classes/class-db.php:55 classes/class-db.php:219
 msgid "Password"
 msgstr ""
 
-#: classes/class-db.php:60
-msgid "Show DB Notice"
+#: classes/class-db.php:56
+msgid "Activate DB Backup Tool"
 msgstr ""
 
-#: classes/class-db.php:204
-msgid "Domain for Backup"
-msgstr ""
-
-#: classes/class-db.php:208
+#: classes/class-db.php:199
 msgid "Domain where DB Backup Tool is located"
 msgstr ""
 
-#: classes/class-db.php:220
+#: classes/class-db.php:211
 msgid "Your DB Backup Tool Username"
 msgstr ""
 
-#: classes/class-db.php:232
+#: classes/class-db.php:223
 msgid "Your DB Backup Tool Password"
 msgstr ""
 
-#: classes/class-db.php:235 classes/class-db.php:237
+#: classes/class-db.php:226 classes/class-db.php:228
 msgid "Register new user"
 msgstr ""
 
-#: classes/class-db.php:253
-msgid "Enable this option to show DB Tool notice"
+#: classes/class-db.php:244
+msgid "Enable DB Backup Tool"
+msgstr ""
+
+#: classes/class-wptouch-alternate-menu.php:34
+msgid "Alternate Pages Menu"
+msgstr ""
+
+#: classes/class-wptouch-alternate-menu.php:36
+msgid "Choose a menu"
+msgstr ""
+
+#: classes/class-wptouch-alternate-menu.php:37
+msgid "Off-Canvas left bottom menu"
 msgstr ""
 
 #: classes/class-wpt.php:50
 msgid "Overwrite Pages Menü"
 msgstr ""
 
-#: classes/class-wpt.php:52
-msgid "Active"
-msgstr ""
-
 #: classes/class-wpt.php:53
-msgid "Title"
+msgid "Menu Title"
 msgstr ""
 
-#: classes/class-wpt.php:102
-msgid "Activate the alternate pages menu"
-msgstr ""
-
-#: classes/class-wpt.php:109
-msgid "WP Touch Menu Tile"
-msgstr ""
-
-#: classes/class-wpt.php:113
+#: classes/class-wpt.php:108
 msgid "Title of alternate pages menu"
+msgstr ""
+
+#: classes/class-woo-settings-field.php:43
+msgid "Custom Meta Name"
 msgstr ""
 
 #. Name of the plugin

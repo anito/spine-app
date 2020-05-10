@@ -2,3 +2,4 @@
 assets/spine/package-lock.json
 /assets/spine/nbproject/
 *.code-workspace
+languages/*-backup*

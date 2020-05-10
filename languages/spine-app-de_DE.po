@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Spine App\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-27 16:47+0000\n"
-"PO-Revision-Date: 2020-01-27 16:47+0000\n"
-"Last-Translator: Axel <axel@webpremiere.dev>\n"
+"POT-Creation-Date: 2020-05-10 12:38+0000\n"
+"PO-Revision-Date: 2020-05-10 12:41+0000\n"
+"Last-Translator: Axel\n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -12,128 +12,143 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.3.1; wp-5.3.2"
+"X-Loco-Version: 2.3.3; wp-5.4.1"
 
-#: class-admin.php:117
+#: class-admin.php:26
+msgid "DB Backup Tool"
+msgstr "DB Backup Tool"
+
+#: class-admin.php:27
+msgid "WP Touch"
+msgstr "WP Touch"
+
+#: class-admin.php:28
+msgid "Action Products"
+msgstr "\"Action\" Produkte"
+
+#: class-admin.php:152
 msgid "Lehmann Settings"
 msgstr "Lehmann Einstellungen"
 
 #. link title
-#: class-admin.php:118
+#: class-admin.php:153
 msgid "Lehmann GmbH"
 msgstr "Lehmann GmbH"
 
-#: class-admin.php:212
-msgid "Setup"
-msgstr "Einstellungen"
-
-#: class-admin.php:221
+#: class-admin.php:263
 msgid "Save"
 msgstr "Speichern"
 
-#: class-admin.php:239
-msgid "DB Backup Tool"
-msgstr "DB Backup Tool"
-
-#: class-admin.php:240
-msgid "WP Touch"
-msgstr "WP Touch"
-
-#: class-admin.php:241
-msgid "Action Products"
-msgstr "\"Action\" Produkte"
-
-#: class-admin.php:269
+#: class-admin.php:303
 msgid "Please authorize in DB Backup Tool"
 msgstr "Autorisiere dich im DB Back Tool"
 
-#: class-admin.php:272
+#: class-admin.php:306
 msgid "Replace default Pages Menu in WP Touch"
 msgstr ""
 "Ermöglicht das Überschreiben des Seitenmenüs (links) mit einem "
 "benutzerdefinierten Menü"
 
-#: class-admin.php:275
-msgid "Use Action Products"
-msgstr "\"Action\" Produkt aktivieren"
+#: class-admin.php:309
+msgid "Activate additional Product Features."
+msgstr "Aktiviere zusätzliche Produktmerkmale"
 
-#: class-admin.php:278
+#: class-admin.php:312
 msgid "Short description here"
-msgstr "Kurze Beschreibung hier"
+msgstr "Kurzbeschreibung"
 
-#: class-help.php:9 classes/class-db.php:18 classes/class-wptouch-helper.php:12
-#: classes/class-wpt.php:16
+#: class-help.php:9
 #, php-format
 msgid "%s is a singleton class and you cannot create a second instance."
 msgstr ""
 
-#: classes/class-db.php:55
+#: classes/class-woo.php:52
+msgid "Activate WooCommerce Gutenberg Product Block: Special Products"
+msgstr "Aktiviere den WooCommerce Gutenberg Product Block: Special Products"
+
+#: classes/class-woo.php:54 classes/class-wpt.php:52
+msgid "Active"
+msgstr "Aktiv"
+
+#: classes/class-woo.php:121 classes/class-wpt.php:98
+msgid "Activate the alternate pages menu"
+msgstr "Aktiviere ein alternatives Seitenmenü im WP Touch Theme"
+
+#: classes/class-woo.php:130
+msgid "Meta Field"
+msgstr "Meta Feld"
+
+#: classes/class-woo.php:135
+msgid "Add Meta Field"
+msgstr "Meta Feld hinzufügen"
+
+#: classes/class-db.php:51
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: classes/class-db.php:57
-msgid "Backup Domain"
-msgstr "Domain"
+#: classes/class-db.php:53 classes/class-db.php:195
+msgid "DB Backup Tool Domain"
+msgstr "Domain des DB Backup Tools "
 
-#: classes/class-db.php:58 classes/class-db.php:216
+#: classes/class-db.php:54 classes/class-db.php:207
 msgid "Username"
 msgstr "Benutzername"
 
-#: classes/class-db.php:59 classes/class-db.php:228
+#: classes/class-db.php:55 classes/class-db.php:219
 msgid "Password"
 msgstr "Passwort"
 
-#: classes/class-db.php:60
-msgid "Show DB Notice"
-msgstr "Zeige Info"
+#: classes/class-db.php:56
+msgid "Activate DB Backup Tool"
+msgstr "Aktiviere DB Backup Tool"
 
-#: classes/class-db.php:204
-msgid "Domain for Backup"
-msgstr "Domain für Datenbank-Sicherung"
-
-#: classes/class-db.php:208
+#: classes/class-db.php:199
 msgid "Domain where DB Backup Tool is located"
-msgstr "IP oder Domain des DB Backup Tools"
+msgstr "DB Backup Tool Domain"
 
-#: classes/class-db.php:220
+#: classes/class-db.php:211
 msgid "Your DB Backup Tool Username"
 msgstr "Dein DB Backup Tool Benutzername"
 
-#: classes/class-db.php:232
+#: classes/class-db.php:223
 msgid "Your DB Backup Tool Password"
 msgstr "Dein DB Backup Tool Passwort"
 
-#: classes/class-db.php:235 classes/class-db.php:237
+#: classes/class-db.php:226 classes/class-db.php:228
 msgid "Register new user"
-msgstr "Registriere dich"
+msgstr "Registriere neuen Benutzer"
 
-#: classes/class-db.php:253
-msgid "Enable this option to show DB Tool notice"
-msgstr "Aktiviere diese Option um die Notiz anzuzeigen "
+#: classes/class-db.php:244
+msgid "Enable DB Backup Tool"
+msgstr "Aktiviere DB Backup Tool"
+
+#: classes/class-wptouch-alternate-menu.php:34
+msgid "Alternate Pages Menu"
+msgstr "Alternatives Seitenmenü für dein WP Touch Theme"
+
+#: classes/class-wptouch-alternate-menu.php:36
+msgid "Choose a menu"
+msgstr "Wähle ein Menü"
+
+#: classes/class-wptouch-alternate-menu.php:37
+msgid "Off-Canvas left bottom menu"
+msgstr ""
 
 #: classes/class-wpt.php:50
 msgid "Overwrite Pages Menü"
 msgstr "Seitenmenü überschreiben"
 
-#: classes/class-wpt.php:52
-msgid "Active"
-msgstr "Aktiv"
-
 #: classes/class-wpt.php:53
-msgid "Title"
-msgstr "Titel"
+msgid "Menu Title"
+msgstr "Menü Titel"
 
-#: classes/class-wpt.php:102
-msgid "Activate the alternate pages menu"
-msgstr "Aktiviere ein alternatives Menü anstelle des normalen Seiten Menüs"
-
-#: classes/class-wpt.php:109
-msgid "WP Touch Menu Tile"
-msgstr "WP Touch Menü-Titel"
-
-#: classes/class-wpt.php:113
+#: classes/class-wpt.php:108
 msgid "Title of alternate pages menu"
 msgstr "Titel des benutzerdefinierten Menüs"
+
+#: classes/class-woo-settings-field.php:43
+msgid "Custom Meta Name"
+msgstr "Eigener Meta Name"
 
 #. Name of the plugin
 msgid "Spine App"

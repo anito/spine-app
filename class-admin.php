@@ -52,7 +52,7 @@ class Spine_js_admin {
         $this->db = new Db_spine_js();
 
         if( $opts['show_db_notice'] ) {
-            add_action( 'admin_enqueue_scripts', array ( $this->db, 'enqueue_assets' ), 0 );
+            add_action( 'admin_enqueue_scripts', array ( $this->db, 'enqueue_assets' ), 10 );
             add_action( "admin_notices", array($this->db, 'show_db_backup_notice'), 10 );
             add_action( "db_backup_notice", array($this->db, 'db_backup_notice'), 10 );
             add_action( 'admin_footer', array ( $this->db, 'init_spine_js' ), 999) ;
@@ -105,27 +105,28 @@ class Spine_js_admin {
         global $pagenow;
 
         if( ! function_exists( 'wptouch_register_theme_menu' ) ) {
-            $this->missing_plugins[] = array( 'plugin_name' => 'WP Touch', 'tab' => $this->tabs['wpt_custom_menu'] );
-            add_filter( 'spine_js_tabs', array( $this, 'no_wp_touch' ) );
+            $tab_slug = 'wpt_custom_menu';
+            $this->missing_plugins[] = array( 'plugin_name' => 'WP Touch', 'tab' => $this->tabs[$tab_slug], 'slug' => $tab_slug );
         }
         if( ! function_exists( 'woocommerce_get_page_id' ) ) {
-            $this->missing_plugins[] = array( 'plugin_name' => 'Woocommerce', 'tab' => $this->tabs['woo_action_taxonomy'] ) ;
-            add_filter( 'spine_js_tabs', array( $this, 'no_woocommerce' ) );
+            $tab_slug = 'woo_action_taxonomy';
+            $this->missing_plugins[] = array( 'plugin_name' => 'Woocommerce', 'tab' => $this->tabs[$tab_slug], 'slug' => $tab_slug ) ;
         }
         if( ! empty( $this->missing_plugins ) )
-            $screen = $pagenow;
-            if( $screen === 'options-general.php' && ! empty ( $_GET['page'] ) && $_GET['page'] === $this->plugin_slug )
+
+            if( $pagenow === 'options-general.php' && ! empty ( $_GET['page'] ) && $_GET['page'] === $this->plugin_slug ) {
+                add_filter( 'spine_js_tabs', array( $this, 'filter_tabs' ), 10 );
                 add_action( "admin_notices", array($this, 'show_notices'), 10 );
+            }
+
     }
 
-    public function no_wp_touch( $tabs ) {
-        unset( $tabs['wpt_custom_menu'] );
+    public function filter_tabs( $tabs ) {
+        foreach( $this->missing_plugins as $missing_plugin )
+            unset( $tabs[$missing_plugin['slug']] );
         return $tabs;
     }
-    public function no_woocommerce( $tabs ) {
-        unset( $tabs['woo_action_taxonomy'] );
-        return $tabs;
-    }
+
     public function show_notices() {
         $this->notes['missing-plugins'] = array(
             'class' => 'notice notice-warning',
@@ -305,7 +306,7 @@ class Spine_js_admin {
                 $text = __("Replace default Pages Menu in WP Touch", "spine-app");
                 break;
             case 'woo_action_taxonomy':
-                $text = __("Ativiert zusätzliche Merkmale eines Produktes.", "spine-app");
+                $text = __("Activate additional Product Features.", "spine-app");
                 break;
             default:
                 $text = __("Short description here", "spine-app");

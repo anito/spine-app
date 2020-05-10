@@ -50,10 +50,10 @@ if ( ! class_exists( 'db_spine_js' ) ) {
 
             add_settings_section('spine_js_settings_sections_db', __("Settings", "spine-app"), array($this, 'section_text'), $this->plugin_slug);
 
-            add_settings_field('id_backup_domain', __("Backup Domain", "spine-app"), array($this, 'get_backup_domain'), $this->plugin_slug, 'spine_js_settings_sections_db');
+            add_settings_field('id_backup_domain', __("DB Backup Tool Domain", "spine-app"), array($this, 'get_backup_domain'), $this->plugin_slug, 'spine_js_settings_sections_db');
             add_settings_field('id_username', __("Username", "spine-app"), array($this, 'get_option_username'), $this->plugin_slug, 'spine_js_settings_sections_db');
             add_settings_field('id_password', __("Password", "spine-app"), array($this, 'get_option_password'), $this->plugin_slug, 'spine_js_settings_sections_db');
-            add_settings_field('id_show_db_notice', __("Show DB Notice", "spine-app"), array($this, 'get_option_show_db_notice'), $this->plugin_slug, 'spine_js_settings_sections_db');
+            add_settings_field('id_show_db_notice', __("Activate DB Backup Tool", "spine-app"), array($this, 'get_option_show_db_notice'), $this->plugin_slug, 'spine_js_settings_sections_db');
             add_settings_field('id_option_group', "", array($this, 'get_hidden_input'), $this->plugin_slug, 'spine_js_settings_sections_db');
 
         }
@@ -192,7 +192,7 @@ if ( ! class_exists( 'db_spine_js' ) ) {
 
             ?>
             <label class="spine-js-">
-                <input id="spine_js_settings_db_backup_domain" name="spine_js_settings_db[backup_domain]" size="40" value="<?= $this->backup_domain ?>" placeholder="<?= __('Domain for Backup', "spine-app") ?>"
+                <input id="spine_js_settings_db_backup_domain" name="spine_js_settings_db[backup_domain]" size="40" value="<?= $this->backup_domain ?>" placeholder="<?= __('DB Backup Tool Domain', "spine-app") ?>"
                         type="text"  />
             </label>
             <?php
@@ -241,7 +241,7 @@ if ( ! class_exists( 'db_spine_js' ) ) {
                 <span class="spine-js-slider spine-js-round"></span>
             </label>
             <?php
-            SPINEJS()->spine_js_help->get_help_tip(__("Enable this option to show DB Tool notice", "spine-app"));
+            SPINEJS()->spine_js_help->get_help_tip(__("Enable DB Backup Tool", "spine-app"));
 
         }
 
