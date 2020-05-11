@@ -47,17 +47,14 @@ class Spine_js_admin {
     }
 
     public function init() {
+
         $opts = get_option('spine_js_settings_db');
 
         $this->db = new Db_spine_js();
 
         if( $opts['show_db_notice'] ) {
-            add_action( 'admin_enqueue_scripts', array ( $this->db, 'enqueue_assets' ), 10 );
-            add_action( "admin_notices", array($this->db, 'show_db_backup_notice'), 10 );
-            add_action( "db_backup_notice", array($this->db, 'db_backup_notice'), 10 );
-            add_action( 'admin_footer', array ( $this->db, 'init_spine_js' ), 999) ;
+            add_action( 'current_screen', array ( $this->db, 'hooks' ), 10 );
         }
-
     }
 
     public function edit() {

@@ -30,10 +30,10 @@ class SpineApp_Public {
 				self::$instance->spine_js_help = new Spine_js_help();
 
 				$spine_js_help = self::$instance->spine_js_help;
+				self::$instance->admin_hooks();
 			}
 		}
 		self::$instance->spine_js_front = new Spine_js_front();
-		self::$instance->hooks();
 
 		return self::$instance;
 
@@ -42,13 +42,10 @@ class SpineApp_Public {
 	* Initialize the class and start calling our hooks and filters
 	* @since 2.0.0
 	*/
-	private function hooks() {
-		if (is_admin()) {
-			add_action('plugins_loaded', array(self::$instance->spine_js_admin, 'init'), 10);
-			add_action('plugins_loaded', array(self::$instance->spine_js_admin, 'edit'), 11);
-			add_action('plugins_loaded', array(self::$instance->spine_js_admin, 'hooks'), 10);
-
-		}
+	private function admin_hooks() {
+		add_action('plugins_loaded', array(self::$instance->spine_js_admin, 'init'), 10);
+		add_action('plugins_loaded', array(self::$instance->spine_js_admin, 'edit'), 11);
+		add_action('plugins_loaded', array(self::$instance->spine_js_admin, 'hooks'), 10);
 	}
 
 	/**

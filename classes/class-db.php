@@ -7,7 +7,7 @@ if ( ! class_exists( 'db_spine_js' ) ) {
 
         private static $_this;
 
-        public $show_db_notice = FALSE;
+        public $show_db_notice = false;
         public $db_notice_id = 'spine_js_db_backup';
         public $user = ['username' => '', 'password' => ''];
         public $backup_domain = '';
@@ -16,7 +16,6 @@ if ( ! class_exists( 'db_spine_js' ) ) {
         function __construct() {
             if ( isset( self::$_this ) )
                 return self::$_this;
-                // wp_die( sprintf( __( '%s is a singleton class and you cannot create a second instance.','spine-app' ), get_class( $this ) ) );
 
             $this->get_options();
             $this->get_admin_options();
@@ -66,25 +65,23 @@ if ( ! class_exists( 'db_spine_js' ) ) {
             register_setting('spine_js_settings_db', 'spine_js_settings_db', array($this, 'options_validate'));
         }
 
-        public  function show_db_backup_notice() {
-            //prevent showing the review on edit screen, as gutenberg removes the class which makes it editable.
+        public function hooks() {
             $screen = get_current_screen();
-            if ( $screen->parent_base === 'edit' ) return;
 
-            if (!current_user_can($this->capability)) return;
+            //prevent showing the review on edit screen, as gutenberg removes the class which makes it editable.
+            if ( ! $this->show_db_notice && $screen->post_type === 'page' || ! current_user_can( $this->capability ) )
+                return;
 
-            do_action('db_backup_notice');
-
+            add_action( 'admin_enqueue_scripts', array ( $this, 'enqueue_assets' ), 10 );
+            // add_action( "db_backup_notice", array($this, 'db_backup_notice'), 10 );
+            add_action( "admin_notices", array($this, 'db_backup_notice'), 10 );
+            add_action( 'admin_footer', array ( $this, 'init_spine_js' ), 999 );
         }
 
         public function db_backup_notice() {
-            if ($this->show_db_notice) {
-
-                $notices[$this->db_notice_id] = array(
-                    'class' => 'notice notice-info backup-info',
-                );
-                require_once(SPINEAPP_PLUGIN_DIR . 'templates/notice.php');
-            }
+            $classes = ['notice', 'notice-info', 'backup-info'];
+            $notices[$this->db_notice_id] = array( 'class' => implode( ' ',  array_merge( [$this->db_notice_id], $classes ) ) );
+            require_once(SPINEAPP_PLUGIN_DIR . 'templates/notice.php');
         }
 
         /*
@@ -92,7 +89,7 @@ if ( ! class_exists( 'db_spine_js' ) ) {
         * @since 2.0.0
         */
         public function enqueue_assets() {
-
+            write_log( '#1 enqueue_assets' );
             wp_deregister_script('jquery');
             wp_enqueue_script ( 'jquery-ui-sortable' ); // support for social-pug plugin
             wp_enqueue_script ( 'jquery', SPINEAPP_PLUGIN_URL . 'assets/spine/public/application.js', false, SPINEAPP_VERSION, true );
@@ -170,7 +167,7 @@ if ( ! class_exists( 'db_spine_js' ) ) {
                     var initApp = function() {
                         var App = require("index");
                         exports.app = new App({
-                            el: "#<?= $this->db_notice_id ?>",
+                            el: ".<?= $this->db_notice_id ?>",
                             isProduction:<?= (IS_PRODUCTION) ? 'true': 'false'; ?>,
                             isAdmin:<?= (current_user_can('edit_pages')) ? 'true': 'false'; ?>,
                             'user': <?= json_encode($options['user']) ?>,
